@@ -85,7 +85,7 @@ SELECT COUNT(*) FROM inventory WHERE film_id in (SELECT film_id FROM film WHERE 
 
 -- * 6e. Using the tables `payment` and `customer` and the `JOIN` command, list the total paid by each customer. List the customers alphabetically by last name:
 -- ![Total amount paid](Images/total_payment.png)
-SELECT c.customer_id, CONCAT( c.last_name,', ',c.first_name) AS customer ,SUM(p.amount) 
+SELECT c.customer_id, CONCAT( c.last_name,', ',c.first_name) AS customer ,SUM(p.amount) AS payment
 FROM payment p 
 JOIN customer as c ON p.customer_id=c.customer_id
 GROUP BY c.customer_id
